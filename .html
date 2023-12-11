@@ -1,0 +1,26 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chinese-Hakka Dictionary</title>
+</head>
+<body>
+    <h1>酸柑茶</h1>
+    <input type="text" id="query" placeholder="Enter Chinese word">
+    <button onclick="search()">Search</button>
+    <p id="result"></p>
+
+    <script>
+        function search() {
+            var query = document.getElementById('query').value;
+            var url = 'https://script.google.com/macros/s/AKfycbz3vjsGNTWAxB2lOAMRQXq2BRF3eHXW-ypmMV9dBeHgkw5t7tC31Gj-mNNd8IXntLDakw/exec?q=' + encodeURIComponent(query);
+
+            fetch(url)
+                .then(response => response.text())
+                .then(text => document.getElementById('result').innerText = text)
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
